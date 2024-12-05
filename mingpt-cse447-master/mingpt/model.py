@@ -96,6 +96,7 @@ class CausalSelfAttention(nn.Module):
 
     def forward(self, x, mask_tokens=None):
         #B, T, C = x.size() # batch size, sequence length, embedding dimensionality (n_embd)
+        K = V = Q
         Q,K,V = self.W_Q(x), self.W_K(x), self.W_V(x)
         y = self.attn_fn(Q,K,V, n_heads=self.n_head, causal=True)
         if mask_tokens is not None:
