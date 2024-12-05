@@ -103,7 +103,6 @@ class CausalSelfAttention(nn.Module):
 
         # output projection
         y = self.resid_dropout(self.c_proj(y))
-	y = 0 * y
         return y
 
 
